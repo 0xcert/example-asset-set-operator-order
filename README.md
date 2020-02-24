@@ -4,7 +4,7 @@ The example is put in the context of a simple dApp to showcase not only function
 
 To keep the example as simple as possible, some values are hardcoded, such as order definition. You can change those in the `src/config.ts` file.
 
-The `src/config.ts` file also contains some empty variables that you need to set for the example to work. Mainly, the valueLedgerId, which you got at deploying a new value ledger in the value management guide, assetLedgerId which you got at deploying a new asset ledger in the asset management guide and the MetaMask account (account1Id) that deployed the value ledger.
+The `src/config.ts` file also contains some empty variables that you need to set for the example to work. Mainly, the valueLedgerId, which you got at deploying a new value ledger in the value management guide, assetLedgerId which you got at deploying a new asset ledger in the asset management guide, the MetaMask primary account (account1Id) that deployed the value ledger and MetaMask secondary acccount (account2Id).
 
 Project structure:
 

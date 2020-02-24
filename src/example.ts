@@ -17,27 +17,19 @@ export async function enableMetamask() {
 export async function checkApprovedValue() {
   await enableMetamask();
   const valueLedger = new ValueLedger(provider, config.valueLedgerId);
-  const gateway = new Gateway(provider);
-  const valueTransferProxy = await gateway.getProxyAccountId(
-    ProxyKind.TRANSFER_TOKEN
-  );
   return valueLedger.isApprovedValue(
     "100000000000000000000",
     config.account1Id,
-    valueTransferProxy
+    config.assetLedgerId
   );
 }
 
 export async function approveValue() {
   await enableMetamask();
   const valueLedger = new ValueLedger(provider, config.valueLedgerId);
-  const gateway = new Gateway(provider);
-  const valueTransferProxy = await gateway.getProxyAccountId(
-    ProxyKind.TRANSFER_TOKEN
-  );
   return valueLedger.approveValue(
     "1000000000000000000000000",
-    valueTransferProxy
+    config.assetLedgerId
   );
 }
 

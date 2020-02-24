@@ -20,6 +20,13 @@ btnApproveTransfer.addEventListener("click", async () => {
     return;
   }
 
+  if (config.assetLedgerId === "") {
+    printWarning(
+      "No assetLedgerId defined. Set asset ledger id in src/config.ts file."
+    );
+    return;
+  }
+
   if (config.account1Id === "") {
     printWarning("No account1Id defined. Please set it in src/config.ts file.");
     return;
@@ -52,8 +59,20 @@ btnSignOrder.addEventListener("click", async () => {
     return;
   }
 
+  if (config.assetLedgerId === "") {
+    printWarning(
+      "No assetLedgerId defined. Set asset ledger id in src/config.ts file."
+    );
+    return;
+  }
+
   if (config.account1Id === "") {
     printWarning("No account1Id defined. Please set it in src/config.ts file.");
+    return;
+  }
+
+  if (config.account2Id === "") {
+    printWarning("No account2Id defined. Please set it in src/config.ts file.");
     return;
   }
 
@@ -84,10 +103,10 @@ btnPerformOrder.addEventListener("click", async () => {
   });
 
   if (mutation) {
-    printMessage("Atomic deployment in progress: " + mutation.id);
+    printMessage("Atomic approval in progress: " + mutation.id);
     printMessage("This may take a while.");
     await mutation.complete();
-    printMessage("Atomic deployment completed");
+    printMessage("Atomic approval completed");
     printMessage(
       "Created asset ledger address: " + mutation.logs[0].createdContract
     );
